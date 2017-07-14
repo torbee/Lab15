@@ -9,15 +9,17 @@ namespace Lab15
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Countries Maintenance Application!");
-            Console.WriteLine("1 - See the list of countries.");
-            Console.WriteLine("2 - Add a country.");
-            Console.WriteLine("3 - Exit.");
+            string filepath = @"D:\Documents\Visual Studio 2015\Projects\Lab15\Lab15\countries.txt";
+            CountriesApp option = new CountriesApp(filepath);
 
-            Reader a = new Reader();
-            Console.WriteLine(a);
+            while (true)
+            {
+                option.Menu();
+            }
+
+
         }
     }
 }

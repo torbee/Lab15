@@ -9,17 +9,24 @@ namespace Lab15
 {
     public class CountriesTextFile
     {
-        public void Reader() {
-            string filepath = @"C:\Users\GC Student\Documents\Visual Studio 2015\Projects\Lab15\Lab15\countries.txt";
-            StreamReader reader = new StreamReader(filepath);
-            string input;
-
-            string line = reader.ReadLine();
-            input = reader.ReadLine();
-            Console.WriteLine(input);
-            Console.WriteLine(line);
+        string path;
+        public CountriesTextFile(string filepath)
+        {
+            path = filepath;
         }
-        
-    }
+        public void showList()
+        {            
+            StreamReader reader = new StreamReader(path);
+            string line = reader.ReadToEnd();
+            Console.WriteLine(line);
+            reader.Close();
+        }
 
+        public void addFile(string country)
+        {
+            StreamWriter writer = new StreamWriter(path, true);
+            writer.Write(country);
+            writer.Close();
+        }
+    }
 }
